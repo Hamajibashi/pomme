@@ -1,0 +1,52 @@
+// LOGO 用字體
+.logo {
+    font-family: 'Oleo Script', cursive;
+}
+
+// 防止圖片變形
+.object-cover {
+    object-fit: cover;
+}
+
+.object-center {
+    object-position: center;
+}
+
+// 卡片 hover 效果
+.card img {
+    transition: all 0.3s;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+// 文字與 icon 連結 hover 效果
+.float-hover {
+    transition: all 0.3s;
+  
+    &:hover {
+        transform: translateY(-0.5rem);
+    }
+  }
+
+// 寬度符合內容
+.fit-content {
+    width: fit-content;
+}
+
+// 標題裝飾
+.title-goldline {
+    position: relative;
+    width: fit-content;
+  
+    &::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      bottom: -20px;
+      height: 5px;
+      width: 100%;
+      background-color: $secondary;
+    }
+  }

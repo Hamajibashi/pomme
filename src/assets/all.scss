@@ -1,0 +1,31 @@
+@import "bootstrap/scss/functions";
+@import "./helpers/variables";
+@import "./helpers/utilities";
+@import "bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Oleo+Script&family=Roboto:wght@400;700&display=swap');
+
+@import "./Front/frontlayout.scss";
+@import "./Front/home.scss";
+@import "./Front/products.scss";
+
+
+body {
+  color: $primary;
+  background-color: $light;
+}
+
+.swal2-icon {
+  border-color: transparent !important;
+}
+
+/* Works for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Works for Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
