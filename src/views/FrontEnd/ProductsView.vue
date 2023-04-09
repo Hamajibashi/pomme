@@ -2,7 +2,7 @@
   <teleport to='title'> | 線上商店</teleport>
   <loading-component :active="isLoading" :z-index="1060"></loading-component>
   <div
-    style="background-image: url('https://images.unsplash.com/photo-1530088172039-5aa64cd6d3b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');"
+    style="background-image: url('https://images.unsplash.com/photo-1530088172039-5aa64cd6d3b0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); height:300px;"
     class="d-flex align-items-center justify-content-center bg-setting">
     <div class="bg-primary p-5 mx-auto" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
       <h2 class="h3 mb-0 fw-bold text-light text-center">線上商店</h2>

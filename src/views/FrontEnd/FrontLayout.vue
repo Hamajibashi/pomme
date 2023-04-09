@@ -48,7 +48,7 @@
   <footer>
     <!-- 訂閱我們 -->
     <div
-      style="background-image: url('https://images.unsplash.com/photo-1646346835055-549f7e3ea8d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); height:200px; background-size:100%; background-position:center center; background-size:cover; background-attachment:fixed;">
+      style="background-image: url('https://images.unsplash.com/photo-1646346835055-549f7e3ea8d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'); height:200px;" class="bg-setting">
       <div class="container-md">
         <div class="row">
           <div class="col-md-6">

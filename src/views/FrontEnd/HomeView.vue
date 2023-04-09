@@ -3,8 +3,8 @@
   <!-- HeroHeader -->
   <header>
     <div
-      style="background-image: url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'); height:85vh; background-size:cover; background-position:center center; background-attachment:fixed;"
-      class="position-relative d-flex flex-column justify-content-center align-items-start" data-aos="fade-up"
+      style="background-image: url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'); height:85vh;"
+      class="position-relative d-flex flex-column justify-content-center align-items-start bg-setting" data-aos="fade-up"
       data-aos-duration="800">
       <div class="bg-primary py-5 px-4 p-sm-5 mx-auto text-center" style="max-width: 450px;" data-aos="fade-up"
         data-aos-delay="200" data-aos-duration="800">
