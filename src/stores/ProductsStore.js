@@ -31,7 +31,11 @@ export default defineStore('productStore', {
               return product.category !== '店內餐點' && product.category !== '店內飲品' && product.category !== '店內甜點'
             })
             let pagination = res.data.pagination;
-            this.page = pagination;
+            pagination.total_pages = 2
+            pagination.current_page = page
+            pagination.has_pre = page > 1
+            pagination.has_next = page < pagination.total_pages
+            this.page = pagination
           } else {
             this.productsData = res.data.products
             this.page = res.data.pagination
