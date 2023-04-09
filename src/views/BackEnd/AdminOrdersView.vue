@@ -62,12 +62,12 @@
     <!-- 訂單 Modal -->
     <div id="orderModal" ref="orderModal" class="modal fade" tabindex="-1" aria-labelledby="orderModalLabel"
       aria-hidden="true">
-      <order-modal :temp-order="tempOrder" :update-order="updateOrder"></order-modal>
+      <order-modal :temp-order="tempOrder" :update-order="updateOrder" />
     </div>
     <!-- 刪除 Modal -->
     <div id="deleteModal" ref="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="delProductModalLabel"
       aria-hidden="true">
-      <delete-modal :item = "tempOrder" @del-item="deleteOrder"></delete-modal>
+      <delete-modal :item="tempOrder" @del-item="deleteOrder" />
     </div>
   </div>
 </template>
@@ -75,9 +75,9 @@
 <script>
 import Swal from 'sweetalert2'
 import { Modal } from 'bootstrap'
-import PaginationComponent from '../../components/FrontEnd/PaginationComponent.vue'
-import DeleteModal from '../../components/BackEnd/DeleteModal.vue'
-import OrderModal from '../../components/BackEnd/OrderModal.vue'
+import PaginationComponent from '@/components/FrontEnd/PaginationComponent.vue'
+import DeleteModal from '@/components/BackEnd/DeleteModal.vue'
+import OrderModal from '@/components/BackEnd/OrderModal.vue'
 
 const { VITE_BASEURL, VITE_APIPATH } = import.meta.env
 
@@ -110,7 +110,14 @@ export default {
         })
         .catch(err => {
           this.isLoading = false
-          console.log(err.response)
+          Swal.fire({
+            iconColor: '#992525',
+            iconHtml: '<i class="bi bi-exclamation-triangle-fill"></i>',
+            text: `${err.response.data.message}`,
+            showConfirmButton: false,
+            width: 250,
+            timer: 1500
+          })
         })
     },
     // 編輯訂單

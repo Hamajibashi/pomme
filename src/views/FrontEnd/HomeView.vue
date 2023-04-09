@@ -4,21 +4,20 @@
   <header>
     <div
       style="background-image: url('https://images.unsplash.com/photo-1445116572660-236099ec97a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80'); height:85vh; background-size:cover; background-position:center center; background-attachment:fixed;"
-      class="position-relative" data-aos="fade-up" data-aos-duration="800">
-      <div class="bg-primary p-5 mx-auto position-absolute bottom-50" style="max-width: 450px;" data-aos="fade-up"
+      class="position-relative d-flex flex-column justify-content-center align-items-start" data-aos="fade-up"
+      data-aos-duration="800">
+      <div class="bg-primary py-5 px-4 p-sm-5 mx-auto text-center" style="max-width: 450px;" data-aos="fade-up"
         data-aos-delay="200" data-aos-duration="800">
         <h2 class="h4 fw-bold text-light">用咖啡、點心和陶藝</h2>
-        <h2 class="h4 fw-bold text-light">為你打造獨一無二的生活風格</h2>
+        <h2 class="h4 fw-bold text-light mb-4">為你打造獨一無二的生活風格</h2>
+        <router-link to="/products" class="btn btn-lg btn-secondary text-light">逛逛線上商店</router-link>
       </div>
-      <a href="#" @click.prevent="scrollDown" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
-        <div class="arrow position-absolute" style="top:90%; right: 50%;"></div>
-      </a>
     </div>
   </header>
   <!-- 優惠活動 -->
   <section>
-    <div class="bg-primary text-white py-5">
-      <div class="container-md" data-aos="fade-up" data-aos-duration="800">
+    <div class="bg-primary text-white py-6">
+      <div class="container-md" data-aos="zoom-in" data-aos-duration="800">
         <div class="row justify-content-center">
           <div class="col-md-6 text-center">
             <h3 class="fw-bold mb-3 open d-flex justify-content-center align-items-center">我們一歲了</h3>
@@ -33,10 +32,10 @@
   </section>
   <!-- 最新消息 -->
   <section>
-    <div class="py-5">
+    <div class="py-7">
       <div class="container-md">
         <div class="d-flex flex-column align-items-center">
-          <h2 class="title-goldline fw-bold mb-5 text-center" data-aos="fade-up" data-aos-duration="800">最新消息</h2>
+          <h2 class="title-goldline fw-bold mb-6 text-center" data-aos="fade-up" data-aos-duration="800">最新消息</h2>
         </div>
         <div class="row position-relative news">
           <div class="col-md-7 mb-3 mb-md-0" data-aos="fade-up" data-aos-duration="800">
@@ -74,8 +73,8 @@
   </section>
   <!-- 關於我們 -->
   <section class="bg-primary text-light">
-    <div class="container-md py-5 d-flex flex-column align-items-center">
-      <h2 class="title-goldline fw-bold mb-5 " data-aos="fade-up" data-aos-duration="800">關於我們</h2>
+    <div class="container-md py-7 d-flex flex-column align-items-center">
+      <h2 class="title-goldline fw-bold mb-6" data-aos="fade-up" data-aos-duration="800">關於我們</h2>
       <h3 class="fs-6" data-aos="fade-up" data-aos-duration="800">Pomme 咖啡是一個由三個女生朋友共同創立的咖啡店</h3>
       <h3 class="fs-6 mb-5" data-aos="fade-up" data-aos-duration="800">我們專注於為顧客提供高品質的咖啡、點心和陶藝體驗，同時致力於打造一個舒適和溫馨的咖啡店環境</h3>
       <div class="row text-primary">
@@ -84,11 +83,11 @@
             <img
               src="https://images.unsplash.com/photo-1541167760496-1628856ab772?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1337&q=80"
               class="card-img-top rounded-0 object-cover" height="300" alt="Pomme 的咖啡" />
-            <div class="card-body text-center">
+            <div class="card-body text-center px-4">
               <h4 class="fw-bold">咖啡</h4>
               <div class="d-flex justify-content-between">
                 <p class="card-text text-start mb-0">
-                  我們使用高品質的咖啡豆，並且堅持手工烘焙，確保每一杯咖啡都帶有最佳風味和香氣。線上商店也有販售我們特調，讓您在自己家也可以享受 Pomme 的香醇
+                  我們使用高品質的咖啡豆，並且堅持手工烘焙，確保每一杯咖啡都帶有最佳風味和香氣。線上商店也有販售我們的特調，讓您在自己家也可以享受 Pomme 的香醇，品味生活
                 </p>
               </div>
             </div>
@@ -99,11 +98,11 @@
             <img
               src="https://images.unsplash.com/photo-1583743089695-4b816a340f82?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
               class="card-img-top rounded-0 object-cover" height="300" alt="Pomme 的餅乾" />
-            <div class="card-body text-center">
+            <div class="card-body text-center px-4">
               <h4 class="fw-bold">手工甜點</h4>
               <div class="d-flex justify-content-between">
                 <p class="card-text text-start mb-0">
-                  我們的甜點是由優質食材製作而成，並且是每天新鮮出爐。我們擅長製作各式甜點，從起司蛋糕到水果鬆餅，每一個都帶有獨特的風味和美味，滿足您的味蕾
+                  我們的甜點是由優質食材製作而成，並且是每天新鮮出爐。我們擅長製作各式甜點，從起司蛋糕到水果鬆餅，每一個都帶有獨特的風味和美味，甜美風味滿足您的味蕾
                 </p>
               </div>
             </div>
@@ -114,11 +113,11 @@
             <img
               src="https://images.unsplash.com/photo-1597696929736-6d13bed8e6a8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
               class="card-img-top rounded-0 object-cover" height="300" alt="Pomme 的陶藝" />
-            <div class="card-body text-center">
+            <div class="card-body text-center px-4">
               <h4 class="fw-bold">手作陶藝</h4>
               <div class="d-flex justify-content-between">
                 <p class="card-text text-start mb-0">
-                  店內食器皆為我們的陶藝作品，每一個都經過精心的設計和製作，皆為世界上獨一無二的陶器。另外我們也提供線上購買，讓您在家也可以營造 Pomme 的氣氛
+                  店內食器皆為我們的陶藝作品，每一個都經過精心的設計和製作，每一個都是世界上獨一無二的陶器。另外我們也提供線上購買，讓您在家也可以營造如同身在 Pomme 的氣氛
                 </p>
               </div>
             </div>
@@ -129,9 +128,9 @@
   </section>
   <!-- 特色介紹 -->
   <section>
-    <div class="container-md py-5">
+    <div class="container-md py-7">
       <div class="d-flex flex-column align-items-center">
-        <h2 class="title-goldline fw-bold mb-5 text-center" data-aos="fade-up" data-aos-duration="800">我們的堅持</h2>
+        <h2 class="title-goldline fw-bold mb-6 text-center" data-aos="fade-up" data-aos-duration="800">我們的堅持</h2>
         <div class="row" data-aos="fade-up" data-aos-duration="800">
           <div class="col-md-6">
             <img
@@ -167,12 +166,9 @@
 
 <script>
 import { mapActions, mapState } from 'pinia'
-import ArticlesStore from '../../stores/ArticlesStore.js'
+import ArticlesStore from '@/stores/ArticlesStore.js'
 export default {
   methods: {
-    scrollDown() {
-      this.$refs.discount.scrollIntoView({ behavior: "smooth" })
-    },
     ...mapActions(ArticlesStore, ['getArticles'])
   },
   computed: {

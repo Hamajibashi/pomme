@@ -107,7 +107,6 @@ export default {
         isPublic: this.article.isPublic || false,
       };
       this.create_date = new Date(this.tempArticle.create_at * 1000)
-        // .toLocaleDateString()
         .toISOString()
         .split('T')[0];
     },

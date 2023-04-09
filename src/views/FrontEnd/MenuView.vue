@@ -2,8 +2,8 @@
   <teleport to='title'> | 美味菜單</teleport>
   <loading-component :active="isLoading" :z-index="1060"></loading-component>
   <div
-    style="background-image: url('https://images.unsplash.com/photo-1574783756547-258b3c720fe9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); height:300px; background-size:cover; background-position:center center; background-attachment:fixed;"
-    class="d-flex align-items-center justify-content-center">
+    style="background-image: url('https://images.unsplash.com/photo-1574783756547-258b3c720fe9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');"
+    class="d-flex align-items-center justify-content-center bg-setting">
     <div class="bg-primary p-5 mx-auto" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
       <h2 class="h3 mb-0 fw-bold text-light text-center">美味菜單</h2>
     </div>
@@ -67,7 +67,7 @@
   
 <script>
 import { mapActions, mapState } from 'pinia'
-import ProductsStore from '../../stores/ProductsStore.js'
+import ProductsStore from '@/stores/ProductsStore.js'
 
 export default {
   methods: {

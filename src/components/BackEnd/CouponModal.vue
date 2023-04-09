@@ -8,40 +8,49 @@
         </h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <div class="mb-3">
-          <label for="title">標題</label>
-          <input type="text" class="form-control" id="title" v-model="tempCoupon.title" placeholder="請輸入標題">
-        </div>
-        <div class="mb-3">
-          <label for="coupon_code">優惠碼</label>
-          <input type="text" class="form-control" id="coupon_code" v-model="tempCoupon.code" placeholder="請輸入優惠碼">
-        </div>
-        <div class="mb-3">
-          <label for="due_date">到期日</label>
-          <input type="date" class="form-control" id="due_date" v-model="due_date">
-        </div>
-        <div class="mb-3">
-          <label for="price">折扣百分比</label>
-          <input type="number" class="form-control" id="price" min="0" v-model.number="tempCoupon.percent"
-            placeholder="請輸入折扣百分比">
-        </div>
-        <div class="mb-3">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" :true-value="1" :false-value="0"
-              v-model="tempCoupon.is_enabled" id="is_enabled">
-            <label class="form-check-label" for="is_enabled">
-              是否啟用
-            </label>
+      <VeeForm ref="form" v-slot="{ errors }" @submit="$emit('update-coupon', tempCoupon)">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="title">標題</label>
+            <VeeField type="text" name="標題" class="form-control" :class="{ 'is-invalid': errors['標題'] }" id="title"
+              rules="required" v-model="tempCoupon.title" placeholder="請輸入標題"></VeeField>
+            <error-message name="標題" class="invalid-feedback"></error-message>
+          </div>
+          <div class="mb-3">
+            <label for="coupon_code">優惠碼</label>
+            <VeeField type="text" name="優惠碼" class="form-control" :class="{ 'is-invalid': errors['優惠碼'] }"
+              id="coupon_code" rules="required" v-model="tempCoupon.code" placeholder="請輸入優惠碼"></VeeField>
+            <error-message name="優惠碼" class="invalid-feedback"></error-message>
+          </div>
+          <div class="mb-3">
+            <label for="due_date">到期日</label>
+            <VeeField type="date" name="到期日" class="form-control" :class="{ 'is-invalid': errors['到期日'] }" id="due_date"
+              rules="required" v-model="due_date"></VeeField>
+            <error-message name="到期日" class="invalid-feedback"></error-message>
+          </div>
+          <div class="mb-3">
+            <label for="price">折扣百分比</label>
+            <VeeField type="number" name="折扣百分比" class="form-control" :class="{ 'is-invalid': errors['折扣百分比'] }"
+              id="price" min="0" max="100" oninput="this.value = Math.abs(this.value)"
+              rules="required|max_value:99|min_value:1" v-model.number="tempCoupon.percent" placeholder="請輸入折扣百分比">
+            </VeeField>
+            <error-message name="折扣百分比" class="invalid-feedback"></error-message>
+          </div>
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" :true-value="1" :false-value="0"
+                v-model="tempCoupon.is_enabled" id="is_enabled">
+              <label class="form-check-label" for="is_enabled">
+                是否啟用
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-gray" data-bs-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-primary" @click="$emit('update-coupon', tempCoupon)"> {{ isNew ? '新增優惠券' :
-          '更新優惠券' }}
-        </button>
-      </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-gray" data-bs-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">確認</button>
+        </div>
+      </VeeForm>
     </div>
   </div>
 </template>
@@ -53,12 +62,15 @@ export default {
   data() {
     return {
       tempCoupon: {},
-      due_date: '',
+      due_date: null
     };
   },
   watch: {
     coupon() {
-      this.tempCoupon = this.coupon;
+      this.tempCoupon = {
+        ...this.coupon,
+        is_enabled: this.coupon.is_enabled || 0,
+      }
       // 將時間格式改為 YYYY-MM-DD
       const dateAndTime = new Date(this.tempCoupon.due_date * 1000)
         .toLocaleDateString().split('T');

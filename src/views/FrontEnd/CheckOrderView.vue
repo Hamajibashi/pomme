@@ -33,7 +33,7 @@
               <div class="w-100">
                 <div class="d-flex justify-content-between">
                   <p class="mb-0 fw-bold">{{ item.product.title }}</p>
-                  <p class="mb-0">NT$ {{ item.product.price }}</p>
+                  <p class="mb-0">NT$ {{ $filters.currency(item.product.price) }}</p>
                 </div>
                 <p class="mb-0 fs-7">數量：{{ item.qty }}</p>
               </div>
@@ -42,18 +42,18 @@
             <div class="border-top pt-4" v-if="total === final_total">
               <div class="d-flex justify-content-between">
                 <p class="mb-0 h4 fw-bold">總計</p>
-                <p class="mb-0 h4 fw-bold">NT$ {{ final_total }}</p>
+                <p class="mb-0 h4 fw-bold">NT$ {{ $filters.currency(final_total) }}</p>
               </div>
             </div>
             <!-- 有使用優惠券 -->
             <div class="border-top pt-4" v-else>
-              <div class="d-flex justify-content-between mb-2 text-muted">
-                <p class="mb-0">總計</p>
-                <p class="mb-0">NT$ {{ total }}</p>
+              <div class="d-flex justify-content-end mb-2 text-muted">
+                <!-- <p class="mb-0">省下</p> -->
+                <p class="mb-0">- NT$ {{ $filters.currency(total - final_total) }}</p>
               </div>
               <div class="d-flex justify-content-between mb-0 fw-bold h4">
                 <p class="mb-0">優惠價</p>
-                <p class="mb-0">NT$ {{ final_total }}</p>
+                <p class="mb-0">NT$ {{ $filters.currency(final_total) }}</p>
               </div>
             </div>
           </div>
@@ -115,7 +115,7 @@
 <script>
 import Swal from 'sweetalert2'
 import { mapActions, mapState } from 'pinia'
-import CartStore from '../../stores/CartStore.js'
+import CartStore from '@/stores/CartStore.js'
 const { VITE_BASEURL, VITE_APIPATH } = import.meta.env
 export default {
   data() {
@@ -166,7 +166,7 @@ export default {
   computed: {
     ...mapState(CartStore, ['cart', 'total', 'final_total', 'isLoading'])
   },
-  mounted(){
+  mounted() {
     this.getCart()
   }
 }

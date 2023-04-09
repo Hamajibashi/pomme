@@ -4,28 +4,27 @@
 @import "bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Oleo+Script&family=Roboto:wght@400;700&display=swap');
 
-@import "./Front/frontlayout.scss";
-@import "./Front/home.scss";
-@import "./Front/products.scss";
-
+@import "./Front/frontLayout.scss";
+@import "./Front/homeView.scss";
+@import "./Front/productsView.scss";
 
 body {
   color: $primary;
   background-color: $light;
 }
 
+*::selection {
+  color: $light;
+  background-color: $secondary;
+}
+
 .swal2-icon {
   border-color: transparent !important;
 }
 
-/* Works for Chrome, Safari, Edge, Opera */
+// 隱藏 input[type="number"] 的箭頭
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-/* Works for Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
 }

@@ -1,16 +1,11 @@
 <template>
-    <div class="modal-dialog modal-xl" role="document">
+  <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content border-0">
       <div class="modal-header bg-primary text-white">
         <h5 class="modal-title" id="orderModal">
           <span>訂單細節</span>
         </h5>
-        <button
-         type="button"
-         class="btn-close btn-close-white"
-         data-bs-dismiss="modal"
-         aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -20,23 +15,23 @@
               <tbody v-if="order.user">
                 <tr>
                   <th style="width: 100px">姓名</th>
-                  <td>{{order.user.name}}</td>
+                  <td>{{ order.user.name }}</td>
                 </tr>
                 <tr>
                   <th>Email</th>
-                  <td>{{order.user.email}}</td>
+                  <td>{{ order.user.email }}</td>
                 </tr>
                 <tr>
                   <th>電話</th>
-                  <td>{{order.user.tel}}</td>
+                  <td>{{ order.user.tel }}</td>
                 </tr>
                 <tr>
                   <th>地址</th>
-                  <td>{{order.user.address}}</td>
+                  <td>{{ order.user.address }}</td>
                 </tr>
                 <tr>
                   <th>留言</th>
-                  <td>{{order.message}}</td>
+                  <td>{{ order.message }}</td>
                 </tr>
               </tbody>
             </table>
@@ -78,24 +73,18 @@
               <tbody>
                 <tr v-for="item in order.products" :key="item.id">
                   <th>
-                    {{item.product.title}}
+                    {{ item.product.title }}
                   </th>
-                  <td>{{item.qty}} / {{item.product.unit}}</td>
+                  <td>{{ item.qty }} / {{ item.product.unit }}</td>
                   <td class="text-end">
-                    {{item.final_total}}
+                    {{ item.final_total }}
                   </td>
                 </tr>
               </tbody>
             </table>
             <div class="d-flex justify-content-end">
               <div class="form-check">
-                <input
-                type="checkbox"
-                class="form-check-input"
-                value=""
-                id="flexCheckDefault"
-                v-model="order.is_paid"
-                >
+                <input type="checkbox" class="form-check-input" value="" id="flexCheckDefault" v-model="order.is_paid">
                 <label class="form-check-label" for="flexCheckDefault">
                   <span v-if="order.is_paid">已付款</span>
                   <span v-else>未付款</span>
@@ -106,38 +95,30 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button
-        type="button"
-        class="btn btn-outline-gray"
-        data-bs-dismiss="modal"
-        >
+        <button type="button" class="btn btn-outline-gray" data-bs-dismiss="modal">
           取消
         </button>
-        <button
-        type="button"
-        class="btn btn-primary"
-        @click="updateOrder"
-        >
+        <button type="button" class="btn btn-primary" @click="updateOrder">
           修改付款狀態
         </button>
       </div>
     </div>
-   </div>
+  </div>
 </template>
 
 <script>
 export default {
- props: ['tempOrder', 'updateOrder'],
- data () {
-   return {
-     order: {},
-     isPaid: false
-   }
- },
- watch: {
-   tempOrder () {
-     this.order = this.tempOrder
-   }
- }
+  props: ['tempOrder', 'updateOrder'],
+  data() {
+    return {
+      order: {},
+      isPaid: false
+    }
+  },
+  watch: {
+    tempOrder() {
+      this.order = this.tempOrder
+    }
+  }
 }
 </script>

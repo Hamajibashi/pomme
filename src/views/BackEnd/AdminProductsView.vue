@@ -58,12 +58,12 @@
     <!-- 產品 Modal -->
     <div id="productModal" ref="productModal" class="modal fade" tabindex="-1" aria-labelledby="productModalLabel"
       aria-hidden="true">
-      <product-modal :is-new="isNew" :temp-product="tempProduct" @update-product="updateProduct"></product-modal>
+      <product-modal :is-new="isNew" :temp-product="tempProduct" @update-product="updateProduct" />
     </div>
     <!-- 刪除 Modal -->
     <div id="deleteModal" ref="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="delProductModalLabel"
       aria-hidden="true">
-      <delete-modal :item="tempProduct" @del-item="deleteProduct"></delete-modal>
+      <delete-modal :item="tempProduct" @del-item="deleteProduct" />
     </div>
   </div>
 </template>
@@ -71,9 +71,9 @@
 <script>
 import Swal from 'sweetalert2'
 import { Modal } from 'bootstrap'
-import PaginationComponent from '../../components/FrontEnd/PaginationComponent.vue'
-import DeleteModal from '../../components/BackEnd/DeleteModal.vue'
-import ProductModal from '../../components/BackEnd/ProductModal.vue'
+import PaginationComponent from '@/components/FrontEnd/PaginationComponent.vue'
+import DeleteModal from '@/components/BackEnd/DeleteModal.vue'
+import ProductModal from '@/components/BackEnd/ProductModal.vue'
 
 const { VITE_BASEURL, VITE_APIPATH } = import.meta.env
 
@@ -110,7 +110,14 @@ export default {
         })
         .catch(err => {
           this.isLoading = false
-          console.log(err.response)
+          Swal.fire({
+            iconColor: '#992525',
+            iconHtml: '<i class="bi bi-exclamation-triangle-fill"></i>',
+            text: `${err.response.data.message}`,
+            showConfirmButton: false,
+            width: 250,
+            timer: 1500
+          })
         })
     },
     // 新增或更新產品

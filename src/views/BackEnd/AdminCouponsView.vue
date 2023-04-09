@@ -29,8 +29,8 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-outline-primary btn-sm" @click="openModal('edit', coupon)">編輯</button>
-              <button class="btn btn-outline-danger btn-sm" @click="openModal('delete', coupon)">刪除</button>
+              <button type="button" class="btn btn-outline-primary btn-sm" @click="openModal('edit', coupon)">編輯</button>
+              <button type="button" class="btn btn-outline-danger btn-sm" @click="openModal('delete', coupon)">刪除</button>
             </div>
           </td>
         </tr>
@@ -41,12 +41,12 @@
     <!-- 優惠券 Modal -->
     <div id="couponModal" ref="couponModal" class="modal fade" tabindex="-1" aria-labelledby="couponModalLabel"
       aria-hidden="true">
-      <coupon-modal :is-new="isNew" :coupon="tempCoupon" @update-coupon="updateCoupon"></coupon-modal>
+      <coupon-modal :is-new="isNew" :coupon="tempCoupon" @update-coupon="updateCoupon" />
     </div>
     <!-- 刪除 Modal -->
     <div id="deleteModal" ref="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="deleteModalLabel"
       aria-hidden="true">
-      <delete-modal :item="tempCoupon" @del-item="deleteCoupon"></delete-modal>
+      <delete-modal :item="tempCoupon" @del-item="deleteCoupon" />
     </div>
   </div>
 </template>
@@ -54,9 +54,9 @@
 <script>
 import Swal from 'sweetalert2'
 import { Modal } from 'bootstrap'
-import PaginationComponent from '../../components/FrontEnd/PaginationComponent.vue'
-import DeleteModal from '../../components/BackEnd/DeleteModal.vue'
-import CouponModal from '../../components/BackEnd/CouponModal.vue'
+import PaginationComponent from '@/components/FrontEnd/PaginationComponent.vue'
+import DeleteModal from '@/components/BackEnd/DeleteModal.vue'
+import CouponModal from '@/components/BackEnd/CouponModal.vue'
 const { VITE_BASEURL, VITE_APIPATH } = import.meta.env
 export default {
   components: {
@@ -66,6 +66,7 @@ export default {
   },
   data() {
     return {
+      coupons:{},
       tempCoupon: [],
       pagination: {},
       isNew: true,
@@ -87,7 +88,14 @@ export default {
         })
         .catch(err => {
           this.isLoading = false
-          console.log(err.response)
+          Swal.fire({
+            iconColor: '#992525',
+            iconHtml: '<i class="bi bi-exclamation-triangle-fill"></i>',
+            text: `${err.response.data.message}`,
+            showConfirmButton: false,
+            width: 250,
+            timer: 1500
+          })
         })
     },
     // 編輯優惠券
@@ -95,27 +103,27 @@ export default {
       // 預設為新增產品
       let url = `${VITE_BASEURL}/v2/api/${VITE_APIPATH}/admin/coupon`
       let httpMethod = 'post'
-      
+
       // 當 isNew 為 false 時 = 編輯產品時
       if (!this.isNew) {
         url = `${VITE_BASEURL}/v2/api/${VITE_APIPATH}/admin/coupon/${tempCoupon.id}`
         httpMethod = 'put'
       }
-      
+
       this.axios[httpMethod](url, { data: tempCoupon })
-      .then(res => {
-        Swal.fire({
-          iconColor: '#004c34',
-          iconHtml: '<i class="bi bi-check-circle-fill"></i>',
-          text: `${res.data.message}`,
-          showConfirmButton: false,
-          width: 250,
-          timer: 1200
+        .then(res => {
+          Swal.fire({
+            iconColor: '#004c34',
+            iconHtml: '<i class="bi bi-check-circle-fill"></i>',
+            text: `${res.data.message}`,
+            showConfirmButton: false,
+            width: 250,
+            timer: 1200
+          })
+          this.couponModal.hide()
+          this.getCoupons()
         })
-        this.couponModal.hide()
-        this.getCoupons()
-      })
-      .catch(err => {
+        .catch(err => {
           Swal.fire({
             iconColor: '#992525',
             iconHtml: '<i class="bi bi-exclamation-triangle-fill"></i>',

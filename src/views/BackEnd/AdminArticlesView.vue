@@ -47,12 +47,12 @@
     <!-- 文章 Modal -->
     <div id="articleModal" ref="articleModal" class="modal fade" tabindex="-1" aria-labelledby="articleModalLabel"
       aria-hidden="true">
-      <article-modal :is-new="isNew" :article="tempArticle" @update-article="updateArticle"></article-modal>
+      <article-modal :is-new="isNew" :article="tempArticle" @update-article="updateArticle" />
     </div>
     <!-- 刪除 Modal -->
     <div id="deleteModal" ref="deleteModal" class="modal fade" tabindex="-1" aria-labelledby="deleteModalLabel"
       aria-hidden="true">
-      <delete-modal :item="tempArticle" @del-item="deleteArticle"></delete-modal>
+      <delete-modal :item="tempArticle" @del-item="deleteArticle" />
     </div>
   </div>
 </template>
@@ -60,9 +60,9 @@
 <script>
 import Swal from 'sweetalert2'
 import { Modal } from 'bootstrap'
-import PaginationComponent from '../../components/FrontEnd/PaginationComponent.vue'
-import DeleteModal from '../../components/BackEnd/DeleteModal.vue'
-import ArticleModal from '../../components/BackEnd/ArticleModal.vue'
+import PaginationComponent from '@/components/FrontEnd/PaginationComponent.vue'
+import DeleteModal from '@/components/BackEnd/DeleteModal.vue'
+import ArticleModal from '@/components/BackEnd/ArticleModal.vue'
 
 const { VITE_BASEURL, VITE_APIPATH } = import.meta.env
 
@@ -97,7 +97,14 @@ export default {
         })
         .catch(err => {
           this.isLoading = false
-          console.log(err.response)
+          Swal.fire({
+            iconColor: '#992525',
+            iconHtml: '<i class="bi bi-exclamation-triangle-fill"></i>',
+            text: `${err.response.data.message}`,
+            showConfirmButton: false,
+            width: 250,
+            timer: 1500
+          })
         })
     },
     // 取得單篇文章
@@ -111,7 +118,14 @@ export default {
         })
         .catch(err => {
           this.isLoading = false
-          console.log(err.response)
+          Swal.fire({
+            iconColor: '#992525',
+            iconHtml: '<i class="bi bi-exclamation-triangle-fill"></i>',
+            text: `${err.response.data.message}`,
+            showConfirmButton: false,
+            width: 250,
+            timer: 1500
+          })
         })
     },
     // 新增或編輯文章
@@ -128,7 +142,6 @@ export default {
 
       this.axios[httpMethod](url, { data: tempArticle })
         .then(res => {
-          console.log(tempArticle)
           Swal.fire({
             iconColor: '#004c34',
             iconHtml: '<i class="bi bi-check-circle-fill"></i>',
