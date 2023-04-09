@@ -15,7 +15,7 @@
         <div class="col-md-3 mb-3" data-aos="fade-up" data-aos-duration="800">
           <ul class="list-group list-unstyled sticky-top sticky-position fs-5">
             <li>
-              <a href="#" class="list-group-item list-group-item-action text-decoration-none" @click.prevent="getProducts"
+              <a href="#" class="list-group-item list-group-item-action text-decoration-none" @click.prevent="getProducts(1)"
                 :class="{ 'active': category === '' }">全部商品</a>
             </li>
             <li>
