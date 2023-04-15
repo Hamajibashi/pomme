@@ -59,30 +59,10 @@
                           </div>
                       </div>
                   </div>
-                  <!-- 手刻分頁 -->
-                  <nav class="d-flex justify-content-center" v-if="category == ''">
-                      <ul class="pagination">
-                          <li class="page-item" :class="{ disabled: !pagination.has_pre }">
-                              <a class="page-link bi bi-caret-left-fill" href="#" aria-label="Previous"
-                                  @click.prevent="getAllProducts(pagination.current_page - 1)">
-                              </a>
-                          </li>
-
-                          <li class="page-item" :class="{ active: page === pagination.current_page }"
-                              v-for="page in pagination.total_pages" :key="page + 'page'">
-                              <a class="page-link" href="#" @click.prevent="getAllProducts(page)">{{ page }}</a>
-                          </li>
-
-                          <li class="page-item" :class="{ disabled: !pagination.has_next }">
-                              <a class="page-link bi bi-caret-right-fill" href="#" aria-label="Next"
-                                  @click.prevent="getAllProducts(pagination.current_page + 1)">
-                              </a>
-                          </li>
-                      </ul>
-                  </nav>
-                  <!-- 個別分類分頁 -->
-                  <nav class="d-flex justify-content-center" v-else>
-                      <pagination-component @emit-pages="getProducts" :pages="pagination" />
+                  <!-- 分頁 -->
+                  <nav class="d-flex justify-content-center">
+                      <pagination-component @emit-pages="getAllProducts" :pages="pagination" v-if="category == ''"/>
+                      <pagination-component @emit-pages="getProducts" :pages="pagination" v-else/>
                   </nav>
               </div>
           </div>
