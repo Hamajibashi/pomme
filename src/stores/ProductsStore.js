@@ -25,7 +25,7 @@ export default defineStore('productStore', {
           const productsWithoutMenu = res.data.products.filter(product => {
             return product.category !== '店內餐點' && product.category !== '店內飲品' && product.category !== '店內甜點'
           }).reverse()
-          
+
           // 分頁資訊
           const perPage = 10
           const totalPages = Math.ceil(productsWithoutMenu.length / perPage)
@@ -43,6 +43,17 @@ export default defineStore('productStore', {
           this.productsData = productsWithoutMenu.slice(startIndex, endIndex)
 
           this.loading = false
+        })
+        .catch(err => {
+          this.loading = false
+          Swal.fire({
+            iconColor: '#992525',
+            iconHtml: '<i class="bi bi-exclamation-triangle-fill"></i>',
+            text: `${err.response.data.message}`,
+            showConfirmButton: false,
+            width: 250,
+            timer: 1500
+          })
         })
     },
     // 取得個別分類的線上商店產品
