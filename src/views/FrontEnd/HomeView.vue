@@ -12,6 +12,11 @@
         <h2 class="h4 fw-bold text-light mb-4">為你打造獨一無二的生活風格</h2>
         <RouterLink to="/products" class="btn btn-lg btn-secondary text-light">逛逛線上商店</RouterLink>
       </div>
+      <div class="box">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </header>
   <!-- 優惠活動 -->
