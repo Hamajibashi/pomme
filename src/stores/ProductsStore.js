@@ -22,9 +22,9 @@ export default defineStore('productStore', {
       const url = `${VITE_BASEURL}/v2/api/${VITE_APIPATH}/products/all`
       axios.get(url)
         .then(res => {
-          const productsWithoutMenu = res.data.products.filter(product => {
+          const productsWithoutMenu = res.data.products.reverse().filter(product => {
             return product.category !== '店內餐點' && product.category !== '店內飲品' && product.category !== '店內甜點'
-          }).reverse()
+          })
 
           // 分頁資訊
           const perPage = 10
