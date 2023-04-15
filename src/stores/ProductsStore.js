@@ -15,31 +15,45 @@ export default defineStore('productStore', {
     loading: false
   }),
   actions: {
-    // 取得線上商店產品
-    getProducts(page = 1, category) {
+    // 取得「全部」產品 & 手刻分頁
+    getAllProducts(page) {
       this.category = ''
       this.loading = true
-      let url = `${VITE_BASEURL}/v2/api/${VITE_APIPATH}/products?page=${page}`
-      if (category) {
-        url = `${VITE_BASEURL}/v2/api/${VITE_APIPATH}/products?page=${page}&category=${category}`
-        this.category = category
-      }
+      const url = `${VITE_BASEURL}/v2/api/${VITE_APIPATH}/products/all`
       axios.get(url)
         .then(res => {
-          if (!category) {
-            this.productsData = res.data.products.filter(product => {
-              return product.category !== '店內餐點' && product.category !== '店內飲品' && product.category !== '店內甜點'
-            })
-            let pagination = res.data.pagination;
-            pagination.total_pages = 2
-            pagination.current_page = page
-            pagination.has_pre = page > 1
-            pagination.has_next = page < pagination.total_pages
-            this.page = pagination
-          } else {
-            this.productsData = res.data.products
-            this.page = res.data.pagination
+          const productsWithoutMenu = res.data.products.filter(product => {
+            return product.category !== '店內餐點' && product.category !== '店內飲品' && product.category !== '店內甜點'
+          }).reverse()
+          
+          // 分頁資訊
+          const perPage = 10
+          const totalPages = Math.ceil(productsWithoutMenu.length / perPage)
+          const pagination = {
+            total_pages: totalPages,
+            current_page: page,
+            has_pre: page > 1,
+            has_next: page < totalPages
           }
+          this.page = pagination
+
+          // 每頁顯示資料數量
+          const startIndex = (page - 1) * perPage;
+          const endIndex = startIndex + perPage;
+          this.productsData = productsWithoutMenu.slice(startIndex, endIndex)
+
+          this.loading = false
+        })
+    },
+    // 取得個別分類的線上商店產品
+    getProducts(page = 1, category) {
+      this.category = category
+      this.loading = true
+      const url = `${VITE_BASEURL}/v2/api/${VITE_APIPATH}/products?page=${page}&category=${category}`
+      axios.get(url)
+        .then(res => {
+          this.productsData = res.data.products
+          this.page = res.data.pagination
           this.loading = false
         })
         .catch(err => {
