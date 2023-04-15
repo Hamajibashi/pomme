@@ -53,10 +53,9 @@
         <div class="row">
           <div class="col-md-6">
             <div class="py-5">
-              <p class="mb-3 fw-bold text-center text-md-start" data-aos="fade-up" data-aos-duration="800">
+              <p class="mb-3 fw-bold text-center text-md-start">
                 訂閱電子報獲取我們的最新消息！</p>
-              <VeeForm ref="vform" class="w-md-50 mt-md-0 mt-3" v-slot="{ errors }" @submit="subscribe" data-aos="fade-up"
-                data-aos-duration="800">
+              <VeeForm ref="vform" class="w-md-50 mt-md-0 mt-3" v-slot="{ errors }" @submit="subscribe">
                 <div class="input-group w-100">
                   <VeeField id="email" name="email" type="email" class="form-control rounded-0"
                     :class="{ 'is-invalid': errors['email'] }" placeholder="請輸入 Email" rules="email|required">
