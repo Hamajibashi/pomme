@@ -64,18 +64,18 @@
                       <ul class="pagination">
                           <li class="page-item" :class="{ disabled: !pagination.has_pre }">
                               <a class="page-link bi bi-caret-left-fill" href="#" aria-label="Previous"
-                                  @click.prevent="updatePage(pagination.current_page - 1)">
+                                  @click.prevent="getAllProducts(pagination.current_page - 1)">
                               </a>
                           </li>
 
                           <li class="page-item" :class="{ active: page === pagination.current_page }"
                               v-for="page in pagination.total_pages" :key="page + 'page'">
-                              <a class="page-link" href="#" @click.prevent="updatePage(page)">{{ page }}</a>
+                              <a class="page-link" href="#" @click.prevent="getAllProducts(page)">{{ page }}</a>
                           </li>
 
                           <li class="page-item" :class="{ disabled: !pagination.has_next }">
                               <a class="page-link bi bi-caret-right-fill" href="#" aria-label="Next"
-                                  @click.prevent="updatePage(pagination.current_page + 1)">
+                                  @click.prevent="getAllProducts(pagination.current_page + 1)">
                               </a>
                           </li>
                       </ul>
@@ -101,9 +101,6 @@ export default {
       PaginationComponent
   },
   methods: {
-      updatePage(page) {
-          this.getAllProducts(page)
-      },
       ...mapActions(ProductsStore, ['getProducts', 'getAllProducts']),
       ...mapActions(CartStore, ['addToCart'])
   },
