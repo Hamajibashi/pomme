@@ -3,43 +3,43 @@
     <div class="row flex-nowrap">
       <div class="col-md-2 px-0">
         <div class="d-flex flex-column text-light bg-primary py-4 vh-100 w-auto position-fixed">
-          <router-link to="/admin" class="mb-4 text-light text-decoration-none px-5">
+          <RouterLink to="/admin" class="mb-4 text-light text-decoration-none px-5">
             <h1 class="h3 fw-bold"><span class="logo">Pomme</span> 後台</h1>
-          </router-link>
+          </RouterLink>
           <ul class="navbar-nav flex-column mb-auto fs-5 px-5">
             <li class="nav-item">
-              <router-link to="/admin" class="nav-link" :class="{ 'text-secondary': this.$route.path === '/admin' }">
+              <RouterLink to="/admin" class="nav-link" :class="{ 'text-secondary': this.$route.path === '/admin' }">
                 <i class="bi bi-house-door-fill me-2"></i>
                 後台首頁
-              </router-link>
+              </RouterLink>
             </li>
             <li class="nav-item">
-              <router-link to="/admin/products" class="nav-link"
+              <RouterLink to="/admin/products" class="nav-link"
                 :class="{ 'text-secondary': this.$route.path === '/admin/products' }">
                 <i class="bi bi-shop me-2"></i>
                 商品管理
-              </router-link>
+              </RouterLink>
             </li>
             <li class="nav-item">
-              <router-link to="/admin/orders" class="nav-link"
+              <RouterLink to="/admin/orders" class="nav-link"
                 :class="{ 'text-secondary': this.$route.path === '/admin/orders' }">
                 <i class="bi bi-card-list me-2"></i>
                 訂單管理
-              </router-link>
+              </RouterLink>
             </li>
             <li class="nav-item">
-              <router-link to="/admin/articles" class="nav-link"
+              <RouterLink to="/admin/articles" class="nav-link"
                 :class="{ 'text-secondary': this.$route.path === '/admin/articles' }">
                 <i class="bi bi-pencil-fill me-2"></i>
                 文章管理
-              </router-link>
+              </RouterLink>
             </li>
             <li class="nav-item">
-              <router-link to="/admin/coupons" class="nav-link"
+              <RouterLink to="/admin/coupons" class="nav-link"
                 :class="{ 'text-secondary': this.$route.path === '/admin/coupons' }">
                 <i class="bi bi-tag-fill me-2"></i>
                 優惠券管理
-              </router-link>
+              </RouterLink>
             </li>
           </ul>
           <button type="button" class="btn btn-secondary text-light mx-3" @click="logout">登出</button>

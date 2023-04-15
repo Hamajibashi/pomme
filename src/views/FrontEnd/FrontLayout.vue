@@ -2,7 +2,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top py-3">
     <div class="container-md">
-      <router-link class="logo h1 text-decoration-none text-light me-5" to="/" @click="hideMenu">Pomme</router-link>
+      <RouterLink class="logo h1 text-decoration-none text-light me-5" to="/" @click="hideMenu">Pomme</RouterLink>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -10,34 +10,34 @@
       <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/menu" class="nav-link fw-bold" :class="{ 'text-secondary': this.$route.path === '/menu' }"
-              @click="hideMenu">美味菜單</router-link>
+            <RouterLink to="/menu" class="nav-link fw-bold" :class="{ 'text-secondary': this.$route.path === '/menu' }"
+              @click="hideMenu">美味菜單</RouterLink>
           </li>
           <li class="nav-item">
-            <router-link to="/products" class="nav-link fw-bold"
-              :class="{ 'text-secondary': this.$route.path === '/products' }" @click="hideMenu">線上商店</router-link>
+            <RouterLink to="/products" class="nav-link fw-bold"
+              :class="{ 'text-secondary': this.$route.path === '/products' }" @click="hideMenu">線上商店</RouterLink>
           </li>
           <li class="nav-item">
-            <router-link to="/news" class="nav-link fw-bold" :class="{ 'text-secondary': this.$route.path === '/news' }"
-              @click="hideMenu">最新消息</router-link>
+            <RouterLink to="/news" class="nav-link fw-bold" :class="{ 'text-secondary': this.$route.path === '/news' }"
+              @click="hideMenu">最新消息</RouterLink>
           </li>
           <li class="nav-item">
-            <router-link to="/access" class="nav-link fw-bold"
-              :class="{ 'text-secondary': this.$route.path === '/access' }" @click="hideMenu">交通方式</router-link>
+            <RouterLink to="/access" class="nav-link fw-bold"
+              :class="{ 'text-secondary': this.$route.path === '/access' }" @click="hideMenu">交通方式</RouterLink>
           </li>
         </ul>
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/cart" class="nav-link position-relative d-none d-lg-block"
+            <RouterLink to="/cart" class="nav-link position-relative d-none d-lg-block"
               :class="{ 'text-secondary': this.$route.path === '/cart' }">
               <i class="bi bi-cart h5"></i>
               <span class="badge rounded-pill bg-danger position-absolute top-0 start-50" v-if="cart.length">{{
                 cart.length }}</span>
-            </router-link>
-            <router-link to="/cart" class="nav-link fw-bold d-lg-none"
+            </RouterLink>
+            <RouterLink to="/cart" class="nav-link fw-bold d-lg-none"
               :class="{ 'text-secondary': this.$route.path === '/cart' }" @click="hideMenu">
               購物車 <span v-if="cart.length">({{ cart.length }})</span>
-            </router-link>
+            </RouterLink>
           </li>
         </ul>
       </div>
@@ -76,15 +76,15 @@
     <div class="bg-primary pt-5 pb-4">
       <div class="container-md">
         <div class="d-flex align-items-center justify-content-center justify-content-sm-between mb-4">
-          <router-link class="text-light h2 logo text-decoration-none mb-0" to="/">Pomme</router-link>
+          <RouterLink class="text-light h2 logo text-decoration-none mb-0" to="/">Pomme</RouterLink>
           <div class="d-none d-sm-inline">
             <ul class="d-flex list-unstyled mb-0 fs-3">
               <li class="float-hover"><a href="#" class="text-white mx-3"><i class="bi bi-facebook"></i></a></li>
               <li class="float-hover"><a href="#" class="text-white mx-3"><i class="bi bi-instagram"></i></a></li>
               <li class="float-hover"><a href="https://github.com/Hamajibashi/pomme" target="_blank"
                   class="text-white mx-3"><i class="bi bi-github"></i></a></li>
-              <li class="float-hover"><router-link class="text-white ms-3" to="/login" target="_blank"><i
-                    class="bi bi-gear"></i></router-link></li>
+              <li class="float-hover"><RouterLink class="text-white ms-3" to="/login" target="_blank"><i
+                    class="bi bi-gear"></i></RouterLink></li>
             </ul>
           </div>
         </div>
@@ -94,8 +94,8 @@
             <li class="float-hover"><a href="#" class="mx-3 text-light"><i class="bi bi-instagram"></i></a></li>
             <li class="float-hover"><a href="https://github.com/Hamajibashi/pomme" target="_blank"
                 class="mx-3 text-light"><i class="bi bi-github"></i></a></li>
-            <li class="float-hover"><router-link class="ms-3 text-light" to="/login" target="_blank"><i
-                  class="bi bi-gear"></i></router-link></li>
+            <li class="float-hover"><RouterLink class="ms-3 text-light" to="/login" target="_blank"><i
+                  class="bi bi-gear"></i></RouterLink></li>
           </ul>
         </div>
         <div class="d-flex justify-content-center justify-content-sm-between text-light">

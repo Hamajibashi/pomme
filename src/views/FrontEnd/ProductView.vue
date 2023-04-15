@@ -13,11 +13,11 @@
     <div class="py-5">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><router-link to="/" class="text-decoration-none">首頁</router-link></li>
-          <li class="breadcrumb-item"><router-link to="/products" class="text-decoration-none">線上商店</router-link>
+          <li class="breadcrumb-item"><RouterLink to="/" class="text-decoration-none">首頁</RouterLink></li>
+          <li class="breadcrumb-item"><RouterLink to="/products" class="text-decoration-none">線上商店</RouterLink>
           </li>
-          <li class="breadcrumb-item fw-bold"><router-link :to="`/product/${id}`" class="text-decoration-none">{{
-            product.title }}</router-link></li>
+          <li class="breadcrumb-item fw-bold"><RouterLink :to="`/product/${id}`" class="text-decoration-none">{{
+            product.title }}</RouterLink></li>
         </ol>
       </nav>
       <div class="row flex-column flex-lg-row align-items-center align-items-lg-stretch">

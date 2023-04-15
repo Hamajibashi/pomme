@@ -27,7 +27,7 @@
                 <button class="btn btn-lg btn-secondary text-light w-100 mt-3" type="button" @click="login">
                   登入
                 </button>
-                <router-link to="/" class="btn btn-lg btn-outline-secondary text-light w-100 mt-3">回到前台首頁</router-link>
+                <RouterLink to="/" class="btn btn-lg btn-outline-secondary text-light w-100 mt-3">回到前台首頁</RouterLink>
               </form>
             </div>
           </div>

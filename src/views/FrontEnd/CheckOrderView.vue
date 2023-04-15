@@ -101,8 +101,8 @@
                 maxlength="50" v-model="form.message" as="textarea"></VeeField>
             </div>
             <div class="d-flex justify-content-between align-items-center">
-              <router-link to="/cart" class="text-decoration-none"><i class="bi bi-caret-left-fill"></i>
-                回到購物車</router-link>
+              <RouterLink to="/cart" class="text-decoration-none"><i class="bi bi-caret-left-fill"></i>
+                回到購物車</RouterLink>
               <button type="submit" class="btn btn-primary" :disabled="cart.length === 0">送出訂單</button>
             </div>
           </VeeForm>

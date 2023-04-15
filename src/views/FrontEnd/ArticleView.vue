@@ -12,11 +12,11 @@
     <div class="py-5">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><router-link to="/" class="text-decoration-none">首頁</router-link></li>
-          <li class="breadcrumb-item"><router-link to="/news" class="text-decoration-none">最新消息</router-link>
+          <li class="breadcrumb-item"><RouterLink to="/" class="text-decoration-none">首頁</RouterLink></li>
+          <li class="breadcrumb-item"><RouterLink to="/news" class="text-decoration-none">最新消息</RouterLink>
           </li>
-          <li class="breadcrumb-item fw-bold"><router-link :to="`/news/${id}`" class="text-decoration-none">{{
-            article.title }}</router-link></li>
+          <li class="breadcrumb-item fw-bold"><RouterLink :to="`/news/${id}`" class="text-decoration-none">{{
+            article.title }}</RouterLink></li>
         </ol>
       </nav>
       <div class="d-flex justify-content-center">
@@ -40,8 +40,8 @@
               <div v-html="article.content" class="card-text">
               </div>
               <div class="d-flex justify-content-between border-top pt-2">
-                <router-link to="/news" class="float-hover text-decoration-none text-end pt-2"><i
-                    class="bi bi-caret-left-fill ms-1"></i>回到最新消息</router-link>
+                <RouterLink to="/news" class="float-hover text-decoration-none text-end pt-2"><i
+                    class="bi bi-caret-left-fill ms-1"></i>回到最新消息</RouterLink>
                 <ul class="list-unstyled d-flex">
                   <li class="float-hover"><a href="#" class="fs-4 me-3"><i class="bi bi-facebook"></i></a>
                   </li>

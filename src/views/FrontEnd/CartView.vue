@@ -78,7 +78,7 @@
             <h4 class="mb-5">
               購物車目前沒有商品哦！
             </h4>
-            <router-link to="/products" class="btn btn-primary btn-lg">來去逛逛</router-link>
+            <RouterLink to="/products" class="btn btn-primary btn-lg">來去逛逛</RouterLink>
           </div>
           <!-- 總計金額 -->
           <div v-if="cart.length !== 0">
@@ -111,7 +111,7 @@
               </div>
             </div>
             <div class="col-md-6 text-end">
-              <router-link class="btn btn-lg btn-primary px-5" to="/checkorder">前往結帳</router-link>
+              <RouterLink class="btn btn-lg btn-primary px-5" to="/checkorder">前往結帳</RouterLink>
             </div>
           </div>
         </div>

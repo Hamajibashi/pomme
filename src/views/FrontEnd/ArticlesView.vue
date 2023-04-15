@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-lg-6 mb-3" v-for="article in articles" :key="article.title" data-aos="fade-up"
           data-aos-duration="800">
-          <router-link :to="`/news/${article.id}`" class="text-decoration-none">
+          <RouterLink :to="`/news/${article.id}`" class="text-decoration-none">
             <div class="card bg-transparent mb-3 border-0 h-100">
               <div class="card-header bg-primary text-light rounded-0">
                 <time>{{ $filters.date(article.create_at) }}</time>
@@ -36,7 +36,7 @@
                 </div>
               </div>
             </div>
-          </router-link>
+          </RouterLink>
         </div>
       </div>
     </div>

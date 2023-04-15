@@ -10,7 +10,7 @@
         data-aos-delay="200" data-aos-duration="800">
         <h2 class="h4 fw-bold text-light">用咖啡、點心和陶藝</h2>
         <h2 class="h4 fw-bold text-light mb-4">為你打造獨一無二的生活風格</h2>
-        <router-link to="/products" class="btn btn-lg btn-secondary text-light">逛逛線上商店</router-link>
+        <RouterLink to="/products" class="btn btn-lg btn-secondary text-light">逛逛線上商店</RouterLink>
       </div>
     </div>
   </header>
@@ -24,7 +24,7 @@
             <p class="mb-2">限時優惠活動開跑！</p>
             <p class="mb-2">來店打卡送蛋糕</p>
             <p class="mb-4">再送您線上商店 8 折優惠券代碼 <span class="text-secondary">Pomme1Year</span></p>
-            <router-link to="/products" class="btn btn-lg btn-secondary text-light">來去逛逛</router-link>
+            <RouterLink to="/products" class="btn btn-lg btn-secondary text-light">來去逛逛</RouterLink>
           </div>
         </div>
       </div>
@@ -39,17 +39,17 @@
         </div>
         <div class="row position-relative news">
           <div class="col-md-7 mb-3 mb-md-0" data-aos="fade-up" data-aos-duration="800">
-            <router-link :to="`/news/${articles[0]?.id}`" class="text-light text-decoration-none">
+            <RouterLink :to="`/news/${articles[0]?.id}`" class="text-light text-decoration-none">
               <div class="ratio ratio-4x3">
                 <div class="overflow-hidden mb-3" style="max-width:800px; max-height:600px;">
                   <img :src="articles[0]?.imageUrl" :alt="articles[0]?.title"
                     class="object-cover object-center w-100 h-100 img-fluid">
                 </div>
               </div>
-            </router-link>
+            </RouterLink>
           </div>
           <div class="col-md-6" data-aos="fade-up" data-aos-duration="800">
-            <router-link :to="`/news/${articles[0]?.id}`" class="text-decoration-none">
+            <RouterLink :to="`/news/${articles[0]?.id}`" class="text-decoration-none">
               <div class="bg-primary text-light p-3 p-lg-4 float-hover">
                 <time class="fs-5 fw-bold">{{ $filters.date(articles[0]?.create_at) }}</time>
                 <div class="d-flex mb-3">
@@ -60,12 +60,12 @@
                 <h3 class="fs-4 fw-bold mb-3">{{ articles[0]?.title }}</h3>
                 <h4 class="fs-5 mb-3 mb-lg-5">{{ articles[0]?.description }}</h4>
                 <div class="d-flex justify-content-end float-hover">
-                  <router-link :to="`/news/${articles[0]?.id}`" class="text-light text-decoration-none">
+                  <RouterLink :to="`/news/${articles[0]?.id}`" class="text-light text-decoration-none">
                     閱讀詳情<i class="bi bi-caret-right-fill"></i>
-                  </router-link>
+                  </RouterLink>
                 </div>
               </div>
-            </router-link>
+            </RouterLink>
           </div>
         </div>
       </div>

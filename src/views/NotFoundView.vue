@@ -7,7 +7,7 @@
         <h1 class="fw-bold mb-5">Oops！尋找的頁面不存在</h1>
         <p class="mb-0 fs-5">在找商品嗎？</p>
         <p class="mb-4 fs-5 mb-5">歡迎來 <span class="logo">Pomme</span> 的線上商店選購！</p>
-        <router-link class="btn btn-lg btn-secondary text-light w-100" to="/products">前往線上商店</router-link>
+        <RouterLink class="btn btn-lg btn-secondary text-light w-100" to="/products">前往線上商店</RouterLink>
       </div>
     </div>
   </div>

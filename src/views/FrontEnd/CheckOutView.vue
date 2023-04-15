@@ -34,8 +34,8 @@
         <p class="text-light mb-0">謝謝您的光臨！</p>
         <p class="text-light mb-2">商品將於 3 天內寄出，請留意包裹訊息</p>
         <div class="d-flex flex-column flex-md-row justify-content-center">
-          <router-link to="/menu" class="btn btn-outline-secondary text-light mx-2 mb-2 mb-md-0">看看菜單</router-link>
-          <router-link to="/products" class="btn btn-secondary text-light mx-2">繼續選購</router-link>
+          <RouterLink to="/menu" class="btn btn-outline-secondary text-light mx-2 mb-2 mb-md-0">看看菜單</RouterLink>
+          <RouterLink to="/products" class="btn btn-secondary text-light mx-2">繼續選購</RouterLink>
         </div>
       </div>
       <div class="row flex-row-reverse">
